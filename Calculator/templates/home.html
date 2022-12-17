@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+
+<form action="{{ url_for('calc')}}" method="post">
+
+                <div id="pad0">
+                    <input type="submit" id="btn13" name="btn" value="C">
+                    <br><input type="submit" id="btn14" name="btn" value="CE">
+                    <br><input type="submit" id="btn15" name="btn" value=".">
+                    <br><input type="submit" id="btn16" name="btn" value="x">
+                </div>
+
+                <div id="pad1">
+                    <input type="submit" id="btn1" name="btn" value="1">
+                    <br><input type="submit" id="btn2" name="btn" value="2">
+                    <br><input type="submit" id="btn3" name="btn" value="3">
+                    <br><input type="submit" id="btnA" name="btn" value="+">
+                </div>
+
+
+                <div id="pad2">
+                    <input type="submit" id="btn4" name="btn" value="4">
+                    <br><input type="submit" id="btn5" name="btn" value="5">
+                    <br><input type="submit" id="btn6" name="btn" value="6">
+                    <br><input type="submit" id="btnB" name="btn" value="-">
+                </div>
+
+
+                <div id="pad3">
+                    <input type="submit" id="btn7" name="btn" value="7">
+                    <br><input type="submit" id="btn8" name="btn" value="8">
+                    <br><input type="submit" id="btn9" name="btn" value="9">
+                    <br><input type="submit" id="btnC" name="btn" value="/">
+                </div>
+
+
+                <div id="pad4">
+                    <input type="submit" id="btn10" name="btn" value="√">
+                    <br><input type="submit" id="btn11" name="btn" value="0">
+                    <br><input type="submit" id="btn12" name="btn" value="=">
+                    <br><input type="submit" id="btnD" name="btn" value="*">
+                </div>
+
+
+                <h2 > {{ answer }} </h2>
+                <h3 > {{ eq }} </h3>
+
+
+
+</form>
+
+
+<style>
+
+    h2 {
+    position: absolute;
+    top: 22%;
+    left: 45%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 200px;
+    height: 100px;
+    display : flex;
+    color : white;
+    background-color : #686969;
+    }
+
+    h3 {
+    position: absolute;
+    top: 28%;
+    left: 45%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 200px;
+    height: 50px;
+    display : flex;
+    color : white;
+    background-color : #686969;
+    }
+
+    #btn1, #btn13, #btn14, #btn15, #btn16{
+    border: none;
+    width: 50px;
+    }
+
+    #btn2{
+    border: none;
+    width: 50px;
+    }
+
+    #btn3{
+    border: none;
+    width: 50px;
+    }
+
+    #btn4{
+    border: none;
+    width: 50px;
+    }
+
+    #btn5{
+    border: none;
+    width: 50px;
+    }
+
+    #btn6{
+    border: none;
+    width: 50px;
+    }
+
+    #btn7{
+    border: none;
+    width: 50px;
+    }
+
+    #btn8{
+    border: none;
+    width: 50px;
+    }
+
+    #btn9{
+    width: 50px;
+    border: none;
+    }
+
+    #btn10{
+    border: none;
+    width: 50px;
+    }
+
+    #btn11{
+    border: none;
+    width: 50px;
+    }
+
+    #btn12{
+    border: none;
+    width: 50px;
+    }
+
+    #btnA{
+    border: none;
+    width: 50px;
+    }
+
+    #btnB{
+    border: none;
+    width: 50px;
+    }
+
+    #btnC{
+    border: none;
+    width: 50px;
+    }
+
+    #btnD{
+    border: none;
+    width: 50px;
+    }
+
+    #btn1:hover, #btn2:hover, #btn3:hover, #btn4:hover, #btn5:hover, #btn6:hover, #btn7:hover, #btn8:hover, #btn9:hover, #btn11:hover{
+    background-color : #CECFCF
+    }
+
+    #btnA:hover, #btnB:hover, #btnC:hover, #btnD:hover, #btn10:hover, #btn12:hover, #btn14:hover, #btn15:hover, #btn16:hover, #btn13:hover{
+    background-color : #04B0F5
+    }
+
+    #pad0 {
+    position: absolute;
+    top: 35%;
+    left: 45%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 500px;
+    height: 50px;
+    display : flex;
+    background-color : white
+
+    }
+
+
+    #pad1 {
+    position: absolute;
+    top: 41%;
+    left: 45%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 500px;
+    height: 50px;
+    display : flex;
+    background-color : white
+
+    }
+
+
+
+    #pad2 {
+    position: absolute;
+    top: 47%;
+    left: 45%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 500px;
+    height: 50px;
+    display : flex;
+    background-color : white
+
+    }
+
+
+    #pad3 {
+    position: absolute;
+    top: 53%;
+    left: 45%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 500px;
+    height: 50px;
+    display : flex;
+    background-color : white
+
+    }
+
+    #pad4 {
+    position: absolute;
+    top: 59%;
+    left: 45%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 500px;
+    height: 50px;
+    display : flex;
+    background-color : white
+
+    }
+
+
+
+</style>
+
+</body>
+
+

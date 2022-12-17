@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <form action="{{ url_for('rps')}}" method="post">
+            <h3>Select Options</h3>
+
+<!--                <br><button id="rock" type="submit" >Rock</button>-->
+            <div>
+                <input type="submit" name="btn" value="rock">
+                <br><input type="submit" name="btn" value="paper">
+                <br><input type="submit" name="btn" value="scissor">
+            </div>
+
+
+
+
+
+
+
+<!--            <select name="options" id="opt" required="required">-->
+<!--                <option value="" disabled selected hidden>Please Choose...</option>-->
+<!--                <option value="0">Rock</option>-->
+<!--                <option value="1">Paper</option>-->
+<!--                <option value="2">Scissor</option>-->
+<!--            </select>-->
+            <br>
+
+<!--            <br><br><button id="sub" type="submit">Choose</button>-->
+
+            <h3 id='pred'>{{ answer }}</h3>
+        </form>
+
+        <form action="{{ url_for('quit')}}" method="get">
+    <br><button id="quit" type="submit" >Quit</button>
+            </form>
+
+
+
+
+<style>
+    div {
+    display : flex
+    }
+
+    input {
+    height: 50px
+    }
+
+    h3 {
+    color: 78DE8C;
+    }
+
+    body {
+    background-color : grey
+    }
+
+    #sub {
+    background-color : #78DE8C
+    }
+
+    #sub:hover {
+    background-color: green;
+    transform: scale(1.25);
+    }
+
+    #quit{
+    background-color : #78DE8C
+    }
+
+    #quit:hover {
+    background-color: green;
+    transform: scale(1.25);
+    }
+
+    #opt {
+    background-color : #78DE8C
+    }
+
+
+
+
+
+</style>
+
+
+</body>
+</html>
