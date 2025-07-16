@@ -4,7 +4,7 @@ from data.engine import generate_chunks, load_animations, Entity
 from platformer_constants import *
 
 
-load_animations('data/images/entities/')
+load_animations('Platformer/data/images/entities/')
 player = Entity(50, 70, 5, 13, 'player')
 
 

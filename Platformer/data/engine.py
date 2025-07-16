@@ -1,8 +1,8 @@
 import random
 import math
 import os
-import noise
-from Platformer.platformer_constants import *
+# import noise
+from platformer_constants import *
 
 e_colorkey = (255,255,255)
 
@@ -384,6 +384,30 @@ def swap_color(img,old_c,new_c):
     surf.set_colorkey(e_colorkey)
     return surf
 
+def terrain_noise(x, scale=0.1, amplitude=5):
+    def hash_value(x):
+        x = int(x)
+        x = ((x >> 16) ^ x) * 0x45d9f3b
+        x = ((x >> 16) ^ x) * 0x45d9f3b
+        x = (x >> 16) ^ x
+        return ((x & 0x7fffffff) / 0x7fffffff - 0.5) * 2
+    
+    # Get integer and fractional parts
+    scaled_x = x * scale
+    int_x = int(scaled_x)
+    frac_x = scaled_x - int_x
+    
+    # Get noise values at integer points
+    a = hash_value(int_x)
+    b = hash_value(int_x + 1)
+    
+    # Smooth interpolation (cosine interpolation)
+    smooth_frac = (1 - math.cos(frac_x * math.pi)) * 0.5
+    interpolated = a + smooth_frac * (b - a)
+    
+    return int(interpolated * amplitude)
+
+
 
 def generate_chunks(x, y):
     chunk_data = []
@@ -391,7 +415,7 @@ def generate_chunks(x, y):
         for x_pos in range(chunk_size):
             tar_x = x * chunk_size + x_pos
             tar_y = y * chunk_size + y_pos
-            height = int(noise.pnoise1(tar_x * 0.1, repeat=999999) * 5)
+            height = terrain_noise(tar_x)
             tile_type = 0
             if tar_y > 8 - height:
                 tile_type = 2

@@ -19,23 +19,23 @@ screen = pygame.display.set_mode(window_size)
 display = pygame.Surface((300, 200))
 pygame.display.set_caption('Platformer')
 
-grass_img = pygame.image.load('data/images/grass.png')
-dirt_img = pygame.image.load('data/images/dirt.png')
-plant_img = pygame.image.load('data/images/plant.png').convert()
+grass_img = pygame.image.load('Platformer/data/images/grass.png')
+dirt_img = pygame.image.load('Platformer/data/images/dirt.png')
+plant_img = pygame.image.load('Platformer/data/images/plant.png').convert()
 plant_img.set_colorkey(white)
 
 tile_index = {1: grass_img, 2: dirt_img, 3: plant_img}
 
-jumper_img = pygame.image.load('data/images/jumper.png').convert()
+jumper_img = pygame.image.load('Platformer/data/images/jumper.png').convert()
 jumper_img.set_colorkey(white)
 
-jump_sound = pygame.mixer.Sound('data/audio/jump.wav')
-grass_sounds = [pygame.mixer.Sound('data/audio/grass_0.wav'),
-                pygame.mixer.Sound('data/audio/grass_1.wav')]
+jump_sound = pygame.mixer.Sound('Platformer/data/audio/jump.wav')
+grass_sounds = [pygame.mixer.Sound('Platformer/data/audio/grass_0.wav'),
+                pygame.mixer.Sound('Platformer/data/audio/grass_1.wav')]
 grass_sounds[0].set_volume(0.2)
 grass_sounds[1].set_volume(0.2)
 
-pygame.mixer.music.load('data/audio/music.wav')
+pygame.mixer.music.load('Platformer/data/audio/music.wav')
 pygame.mixer.music.set_volume(0.6)
 pygame.mixer.music.play(-1)
 
